@@ -16,7 +16,6 @@ class Solution {
                     neg = true;
                     continue;
                 } else if(ch == '+') {
-                    neg = false;
                     continue;
                 }
             }
