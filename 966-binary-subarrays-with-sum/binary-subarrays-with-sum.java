@@ -4,15 +4,19 @@ class Solution {
     }
     
     private int atMost(int[] nums, int goal) {
-        int head, tail = 0, sum = 0, result = 0;
-        for (head = 0; head < nums.length; head++) {
-            sum += nums[head];
-            while (sum > goal && tail <= head) {
-                sum -= nums[tail];
-                tail++;
+        if(goal<0) return 0;
+        int count=0, i=0, j=0, sum=0;
+
+        while(i<nums.length) {
+            sum+=nums[i]; 
+            while(j<nums.length && sum>goal) {
+                sum-=nums[j];
+                j++;
             }
-            result += head - tail + 1;
+            count+=i-j+1;
+            i++;
         }
-        return result;
+
+        return count;
     }
 }
